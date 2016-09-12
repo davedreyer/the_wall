@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/materialize.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.1.0.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+  <title>The Wall</title>
+</head>
+<body>
+  <div class='row header teal lighten-2'>
+    <h5 class='col m4 s12 offset-m1'>Coding Dojo Wall</h5>
+  </div>
+  <div class='row'>
+    <div class='col m8 offset-m2'>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p class='error'>{{message}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </div>
+  </div>
+  <div class='container'>
+    <div class='row'>
+      <div class='col s8 offset-s2'>
+        <div class='section'>
+          <h5 class='blue-text text-darken-2 bottom-border'>Register</h5>
+          <form action='/registration' method='POST' id="registration-form">
+            First Name:<input class='teal-text teal-darken-3' type='text' name='first_name'>
+            Last Name:<input class='teal-text teal-darken-3' type='text' name='last_name'>
+            Email:<input class='teal-text teal-darken-3' type='text' name='email_address'>
+            Password:<input class='teal-text teal-darken-3' type='text' name='password'>
+            Confirm Password:<input class='teal-text teal-darken-3' type='text' name='confirm_password'>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </form>
+        </div>
+        <div class='section'>  
+          <h5 class='blue-text text-darken-2 bottom-border'>Log In</h5>
+          <form action='/login' method='POST'>
+            Email:<input class='teal-text teal-darken-3' type='text' name='email_address'>
+            Password:<input class='teal-text teal-darken-3' type='text' name='password'>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </form>
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+  <div class='divider'>
+  </div>
+  <footer class='teal lighten-2'>
+  </footer>   
+</body>
+</html>

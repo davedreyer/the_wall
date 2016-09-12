@@ -1,0 +1,88 @@
+/*header styles*/
+
+.header	{
+	padding-right: 10px;
+	padding-bottom: 20px;
+	margin-bottom: 10px;
+}
+
+/*login and reg page styles*/
+
+.error {
+	color: red;
+}
+
+/*messages page header styles*/
+
+.materialize-h5-margin-match {
+	margin: 0.82rem 0 0.656rem 0;
+}
+
+.h5-font-override {
+	font-size: 1.44rem;
+}
+
+.logout {
+	margin-right: 10px;
+}
+
+.logout-indent {
+	margin-right: 20px;
+}
+
+/*message styles*/
+
+.margin-top {
+	margin-top: 20px;
+}
+
+/*comment styles*/
+
+.indent {
+	padding-left: 2rem;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*element styles*/
+
+footer {
+	min-height: 50px;
+}
+
+h5 {
+	margin-bottom: 15px;
+}
+
+textarea {
+	border-radius: 5px;
+	border-color: rgb(150,150,150);
+	resize: none;
+}
+
+/*site wide*/
+
+.bottom-border {
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgb(125,125,125);
+}
+
+.bolding {
+	font-weight: 500;
+}
+
+.margin-top {
+	margin-top: 10px;
+}
+
+/*discarded*/
+
+/*@media only screen and (min-width: 601px) {
+	.align-right {
+		text-align: right;
+	}
+}*/

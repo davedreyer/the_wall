@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/materialize.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.1.0.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+  <title>The Wall</title>
+</head>
+<body>
+  <div class='row header teal lighten-2'>
+    <h5 class='col m4 s12 offset-m1'>Coding Dojo Wall</h5>
+    <h5 class='col m6 s12 right-align h5-font-override materialize-h5-margin-match'>Welcome {{ first_name }}</h5>
+  </div>
+  <div class='row'>    
+    <form action='/logout' class='right-align' method='POST'>
+      <button class="btn waves-effect waves-light logout-indent" type="submit" name="action">Logout
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
+  </div>   
+  <div class='divider'>
+  </div>
+  <div class='container'>
+    <div class='row margin-top'>
+      <form action='/message' method='POST'>
+        <span class='bolding'>Post a Message:</span><textarea rows='4' name='message'></textarea>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
+      {% for x in messages: %}
+        <p class='teal-text teal-darken-3'>{{ x.first_name }} {{ x.last_name }}: {{ x.message_created.strftime('%B %d %Y, %I:%M:%S %p') }}</p>
+        <p>{{ x.message }}</p>
+        <form action='/delete/{{ x.message_id }}' method='POST'>
+          <button class="btn waves-effect waves-light" type="submit" name="action">Delete message
+            <i class="material-icons right">send</i>
+          </button>  
+        </form> 
+        {% for y in comments: %}
+          {% if y.message_id == x.message_id: %}
+            <p class='indent teal-text teal-darken-3'>{{ y.first_name }} {{ y.last_name }}: {{ y.comment_created.strftime('%B %d %Y, %I:%M:%S %p') }}</p>
+            <p class='indent'>{{ y.comment }}</p>
+          {% endif %}
+        {% endfor %}  
+        <form action='/comment/{{ x.message_id }}' class='indent margin-top' method='POST'>
+          <span class='bolding'>Post a Comment:</span><textarea rows='4' name='comment'></textarea>
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </form>   
+      {% endfor %}
+    </div>
+  </div>
+  <div class='divider'>
+  </div>
+  <footer class='teal lighten-2'>
+  </footer>     
+</body>
+</html>
